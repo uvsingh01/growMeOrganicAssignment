@@ -38,7 +38,7 @@ const LoginPage = () => {
 
   useEffect(()=>{
     if(localStorage.getItem("userDetails")){
-      // navigate("/", {replace:true})
+      navigate("/", {replace:true})
     }
   },[])
 
