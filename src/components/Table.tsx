@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
@@ -25,9 +24,7 @@ const columns: GridColDef[] = [
   },
 ];
 
-
-
-export default function Table({details}) {
+export default function Table({details}:any) {
   return (
 
     <Box sx={{ height: "100%", width: '100%' }}>
@@ -41,7 +38,7 @@ export default function Table({details}) {
             },
           },
         }}
-        pageSizeOptions={[]}
+        pageSizeOptions={[10]}
         checkboxSelection
         disableRowSelectionOnClick
       />

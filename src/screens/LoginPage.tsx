@@ -12,17 +12,17 @@ import {useNavigate, useLocation} from "react-router-dom"
 import { Delete } from "@mui/icons-material";
 
 const LoginPage = () => {
-  const nameRef = useRef("");
-  const emailRef = useRef("");
-  const phoneRef = useRef("");
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate()
   const {state} = useLocation()
   
   const checkInputs = () => {
-    const name = nameRef.current.value;
-    const phone = phoneRef.current.value;
-    const email = emailRef.current.value;
+    const name = nameRef?.current?.value;
+    const phone = phoneRef?.current?.value;
+    const email = emailRef?.current?.value;
 
     if (!name || !email || !phone) {
       setToggle(true)

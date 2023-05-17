@@ -14,24 +14,29 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 
+type prop={
+  department:string,
+  sub_departments:string[]
+}
 
-function IndeterminateCheckbox({department, sub_departments}) {
+function IndeterminateCheckbox({department, sub_departments}: prop) {
   const [checked, setChecked] =useState([false, false]);
+
   const [openOption, setOpenOption] = useState(true);
 
   const handleClick = () => {
     setOpenOption(!openOption);
   };
   
-  const handleChange1 = (event) => {
+  const handleChange1 = (event:React.ChangeEvent<HTMLInputElement>) => {
     setChecked([event.target.checked, event.target.checked]);
   };
 
-  const handleChange2 = (event) => {
+  const handleChange2 = (event:React.ChangeEvent<HTMLInputElement>) => {
     setChecked([event.target.checked, checked[1]]);
   };
 
-  const handleChange3 = (event) => {
+  const handleChange3 = (event:React.ChangeEvent<HTMLInputElement>) => {
     setChecked([checked[0], event.target.checked]);
   };
 
@@ -75,7 +80,7 @@ function IndeterminateCheckbox({department, sub_departments}) {
 }
 
 const SideBar = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = React.useState(true);
   
   const options = [
     {
@@ -115,7 +120,7 @@ const SideBar = () => {
           <ChevronLeftIcon />
         </IconButton>
         {
-          options.map(el=> <IndeterminateCheckbox department={el.department} sub_departments={el.sub_departments}></IndeterminateCheckbox>)
+          options.map((el,i)=> <IndeterminateCheckbox key={i} department={el.department} sub_departments={el.sub_departments}></IndeterminateCheckbox>)
         }
       </Drawer>
     </Toolbar>

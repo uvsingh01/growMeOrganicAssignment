@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -21,14 +21,14 @@ const HomePage = () => {
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/posts"
       );
-      setDetails(response.data);
+      checkType(response.data);
       return;
     } catch (err) {
       console.log(err);
     }
   };
 
-  const checkType = (data) => {
+  const checkType = (data:any) => {
     const checkedData = data.map((item: any): Post => {
       return {
         id: item.id,
@@ -47,9 +47,6 @@ const HomePage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    checkType(details);
-  }, [details]);
 
   return (
     <Grid
