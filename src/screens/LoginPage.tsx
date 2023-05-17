@@ -55,7 +55,7 @@ const LoginPage = () => {
       <Snackbar
         open={toggle}
         autoHideDuration={6000}
-        anchorOrigin={{vertical:"top",horizontal:"right"}}
+        anchorOrigin={{vertical:"top",horizontal:"center"}}
         onClose={() => setToggle(false)}
       >
         <Alert
